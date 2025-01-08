@@ -1,8 +1,6 @@
 /*Создаем таблицу, производим расчет и заполнение данных monetary value.*/
 
-drop table if exists analysis.tmp_rfm_monetary_value ;
-
-CREATE TABLE analysis.tmp_rfm_monetary_value (
+CREATE or REPLACE TABLE analysis.tmp_rfm_monetary_value (
  user_id INT NOT NULL PRIMARY KEY,
  monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
 );
