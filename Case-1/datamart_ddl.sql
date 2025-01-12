@@ -1,6 +1,9 @@
 /*Создание таблицы  витрины.*/
 
-CREATE or REPLACE TABLE analysis.rfm_segments (
+
+DROP TABLE analysis.rfm_segments;
+
+CREATE TABLE analysis.rfm_segments (
 	user_id int4 NOT NULL,
 	recency int4 NOT NULL,
 	frequency int4 NOT NULL,

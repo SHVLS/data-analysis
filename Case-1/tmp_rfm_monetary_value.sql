@@ -1,8 +1,10 @@
 /*Создаем таблицу, производим расчет и заполнение данных monetary value.*/
 
-CREATE or REPLACE TABLE analysis.tmp_rfm_monetary_value (
- user_id INT NOT NULL PRIMARY KEY,
- monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
+DROP TABLE analysis.tmp_rfm_monetary_value;
+
+CREATE TABLE analysis.tmp_rfm_monetary_value (
+	user_id INT NOT NULL PRIMARY KEY,
+	monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
 );
 
 
@@ -16,6 +18,8 @@ order by 2)
 
 
 insert into analysis.tmp_rfm_monetary_value(
-select 
-  user_id, monetary_value 
-from t);
+	select 
+	user_id, 
+	monetary_value 
+	from t
+);

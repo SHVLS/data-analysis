@@ -1,8 +1,12 @@
 /*Создаем таблицу, производим расчет и заполнение данных recency.*/
 
-CREATE or REPLACE TABLE analysis.tmp_rfm_recency (
- user_id INT NOT NULL PRIMARY KEY,
- recency INT NOT NULL CHECK(recency >= 1 AND recency <= 5)
+
+DROP TABLE analysis.tmp_rfm_recency;
+
+
+CREATE TABLE analysis.tmp_rfm_recency (
+	user_id INT NOT NULL PRIMARY KEY,
+	recency INT NOT NULL CHECK(recency >= 1 AND recency <= 5)
 ); 
 
 
@@ -16,6 +20,8 @@ order by 2)
 
 
 insert into analysis.tmp_rfm_recency(
-select 
-  user_id, recency 
-from ord);
+	select 
+	user_id, 
+	recency 
+	from ord
+);
